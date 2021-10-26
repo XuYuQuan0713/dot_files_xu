@@ -1,0 +1,90 @@
+set number
+syntax on
+" 打开文件类型侦测
+filetype on
+
+" 根据不同的文件类型加载不同的插件
+filetype plugin on
+
+" 快速跳转
+nmap J 3j
+nmap K 3k
+
+
+" 让vim配置保存后立马生效
+autocmd BufWritePost $MYVIMRC source $MYVIMRC
+
+
+
+" 开启实时搜索并且对大小写不敏感
+set incsearch
+set ignorecase
+" 关闭兼容模式
+set nocompatible
+" 开启vim自身命令行模式智能补全
+set wildmenu
+
+set background=dark
+
+
+
+" 格式化
+set formatoptions=tcrqn " 根据要求格式化
+set autoindent     " 继承缩紧
+set smartindent    " 为C语言提供自动缩紧
+set cindent        " 使用C样式缩紧
+set smarttab       " 在行和段开始处使用制表符
+" 设置文件编码
+"set fileencoding=UTF-8
+" 搜索设置
+set showmatch      " 匹配成队符号
+set matchtime=5    " 匹配括号高亮的时间
+" 行数控制
+set scrolloff=20  " 光标始终保持在距离上下顶点20行的位置
+call plug#begin('~/.vim/plugged')
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+" vim欢迎界面
+Plug 'mhinz/vim-startify'
+
+" 文件树
+Plug 'scrooloose/nerdtree'
+Plug 'ryanoasis/vim-devicons'
+
+" vim配色方案
+Plug 'flazz/vim-colorschemes'
+
+" 文件数图标
+" 图标美化
+"Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+
+" 中文帮助文档
+Plug 'yianwillis/vimcdoc'
+"Initialize plugin system
+call plug#end()
+
+" startify
+" 设置欢迎词
+let g:startify_custom_header = [
+      \'+--------------------------------------------------+',
+      \'|     袁菊珍呀！！徐玉全。                          |',
+      \'|                                                  |',
+      \'|                       https://www.zhiyuquan.com  |',
+      \'+--------------------------------------------------+',
+      \]
+" 设置END
+" END
+
+
+" nerdtree设置
+map <leader>n :NERDTreeMirror<CR>
+map <leader>n :NERDTreeToggle<CR>
+
+" 配色方案设置
+colorscheme gruvbox
+
+" 设置缓冲区
+set hidden
+" 如果超过这个时间没有输入，将内容写入到磁盘
+set updatetime=3
+
